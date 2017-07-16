@@ -10,17 +10,13 @@ public class Printer {
     }
     public int addToner(int tonerAmount){
         if(tonerAmount > 0 && tonerAmount <= 100){
-            if(this.tonerLevel + tonerAmount > 100){
-                return -1;
-            }
             this.tonerLevel += tonerAmount;
-            System.out.printf("%d millilitres of toner(ink) has been added.\nThe new toner(ink) level is %d.\n",tonerAmount,this.tonerLevel);
+            System.out.printf(this.tonerLevel + tonerAmount > 100 ? "" :"%d millilitres of toner(ink) has been added.\nThe new toner(ink) level is %d.\n",tonerAmount,this.tonerLevel);
             return this.tonerLevel;
         }
-        else {
-            return -1;
-        }
+        return -1;
     }
+    
 
     public int printPage(int pages){
         int pagesToPrint = pages;
