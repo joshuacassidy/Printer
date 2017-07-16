@@ -1,8 +1,15 @@
 public class Main {
     public static void main(String[] args){
-        Printer printer = new Printer(50,false);
-        System.out.println("initial page count = " + printer.getPagesPrinted());
-        int pagesPrinted = printer.printPage(4);
-        System.out.println("Pages printed was " + pagesPrinted + " new total print count for the printer " + printer.getPagesPrinted());
+        System.out.print("\033[H\033[2J");
+        Printer firstPrinter = new Printer(50,false);
+        System.out.printf("Initial page count = %s\n", firstPrinter.getPagesPrinted());
+        int firstJob = firstPrinter.printPage(4);
+        System.out.printf("Pages printed was %s new total print count for the printer %s\n",firstJob,firstPrinter.getPagesPrinted());
+
+        Printer secondPrinter = new Printer(50,true);
+        System.out.printf("Initial page count = %s\n", secondPrinter.getPagesPrinted());
+        int secondJob = secondPrinter.printPage(8);
+        System.out.printf("Pages printed was %s new total print count for the printer %s\n",secondJob,secondPrinter.getPagesPrinted());
+        
     }
 }
