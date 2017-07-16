@@ -24,11 +24,9 @@ public class Printer {
     public int printPage(int pages){
         int pagesToPrint = pages;
         if( tonerLevel - pages > 0 ){
-
-            if(this.duplex){
-                pagesToPrint /= 2;
-                System.out.println("Printing in duplex mode.");
-            }
+                pagesToPrint = this.duplex ? pagesToPrint/2 : pagesToPrint;
+                System.out.println(this.duplex ? "Printer is now printing in duplex mode." : "Printer is now printing in simplex mode.");
+            
             this.pagesPrinted += pagesToPrint;
              return pagesToPrint;
         } else{
@@ -40,6 +38,9 @@ public class Printer {
 
     public int getPagesPrinted() {
         return pagesPrinted;
+    }
+    public int getTonerLevel() {
+        return tonerLevel;
     }
 
 }
