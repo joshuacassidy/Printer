@@ -14,6 +14,7 @@ public class Printer {
                 return -1;
             }
             this.tonerLevel += tonerAmount;
+            System.out.printf("%d millilitres of toner(ink) has been added.\nThe new toner(ink) level is %d.\n",tonerAmount,this.tonerLevel);
             return this.tonerLevel;
         }
         else {
